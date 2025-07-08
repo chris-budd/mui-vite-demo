@@ -275,7 +275,9 @@ export default function UsersTable() {
 
   // Get user initials for avatar
   const getUserInitials = (user: User) => {
-    return `${user.name.first.charAt(0)}${user.name.last.charAt(0)}`.toUpperCase();
+    const first = user.name?.first || "";
+    const last = user.name?.last || "";
+    return `${first.charAt(0)}${last.charAt(0)}`.toUpperCase();
   };
 
   if (error) {

@@ -267,13 +267,6 @@ export default function UsersTable() {
     });
   };
 
-  // Get user initials for avatar
-  const getUserInitials = (user: User) => {
-    const first = user.name?.first || "";
-    const last = user.name?.last || "";
-    return `${first.charAt(0)}${last.charAt(0)}`.toUpperCase();
-  };
-
   if (error) {
     return (
       <Card variant="outlined">

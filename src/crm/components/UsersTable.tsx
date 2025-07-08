@@ -13,26 +13,20 @@ import {
   Typography,
   TextField,
   Stack,
-  Avatar,
-  IconButton,
   Button,
   Dialog,
   DialogTitle,
   DialogContent,
   DialogActions,
   Grid,
-  Chip,
   MenuItem,
   CircularProgress,
   Alert,
   InputAdornment,
 } from "@mui/material";
-import {
-  Search as SearchIcon,
-  Edit as EditIcon,
-  Close as CloseIcon,
-} from "@mui/icons-material";
+import { Search as SearchIcon, Close as CloseIcon } from "@mui/icons-material";
 import { visuallyHidden } from "@mui/utils";
+import UserRow from "./UserRow";
 
 // User interface based on the API documentation
 interface User {

@@ -16,8 +16,8 @@ export default function Customers() {
         alignItems="center"
         sx={{ mb: 3, display: { xs: "none", sm: "flex" } }}
       >
-        <Typography variant="h4" component="h1">
-          Customers
+        <Typography variant="h4" component="h1" sx={{ mb: "27px" }}>
+          Customer Data
         </Typography>
         <Button variant="contained" startIcon={<AddRoundedIcon />}>
           Add Customer
@@ -26,8 +26,8 @@ export default function Customers() {
 
       {/* Mobile header */}
       <Stack sx={{ mb: 3, display: { xs: "flex", sm: "none" } }}>
-        <Typography variant="h4" component="h1" sx={{ mb: 2 }}>
-          Customers
+        <Typography variant="h4" component="h1" sx={{ mb: "27px" }}>
+          Customer Data
         </Typography>
         <Button variant="contained" startIcon={<AddRoundedIcon />} fullWidth>
           Add Customer

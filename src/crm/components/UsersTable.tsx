@@ -196,14 +196,14 @@ export default function UsersTable() {
   const handleUserClick = (user: User) => {
     setSelectedUser(user);
     setEditFormData({
-      firstName: user.name.first,
-      lastName: user.name.last,
-      email: user.email,
-      city: user.location.city,
-      state: user.location.state,
-      country: user.location.country,
-      phone: user.phone,
-      gender: user.gender,
+      firstName: user.name?.first || "",
+      lastName: user.name?.last || "",
+      email: user.email || "",
+      city: user.location?.city || "",
+      state: user.location?.state || "",
+      country: user.location?.country || "",
+      phone: user.phone || "",
+      gender: user.gender || "",
     });
     setEditModalOpen(true);
   };

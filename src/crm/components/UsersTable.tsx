@@ -415,61 +415,11 @@ export default function UsersTable() {
                 </TableRow>
               ) : (
                 users.map((user) => (
-                  <TableRow
+                  <UserRow
                     key={user.login.uuid}
-                    hover
-                    sx={{ cursor: "pointer" }}
-                    onClick={() => handleUserClick(user)}
-                  >
-                    <TableCell>
-                      <Box
-                        sx={{ display: "flex", alignItems: "center", gap: 1 }}
-                      >
-                        <Avatar
-                          src={user.picture?.thumbnail}
-                          sx={{ width: 32, height: 32, fontSize: "0.875rem" }}
-                        >
-                          {getUserInitials(user)}
-                        </Avatar>
-                        <Typography variant="body2">
-                          {user.name?.title || ""} {user.name?.first || ""}{" "}
-                          {user.name?.last || ""}
-                        </Typography>
-                      </Box>
-                    </TableCell>
-                    <TableCell sx={{ fontWeight: 500 }}>
-                      {user.name?.first || ""}
-                    </TableCell>
-                    <TableCell sx={{ fontWeight: 500 }}>
-                      {user.name?.last || ""}
-                    </TableCell>
-                    <TableCell>{user.email || ""}</TableCell>
-                    <TableCell>
-                      {user.location?.city || ""}, {user.location?.state || ""},{" "}
-                      {user.location?.country || ""}
-                    </TableCell>
-                    <TableCell>{user.dob?.age || ""}</TableCell>
-                    <TableCell>
-                      <Chip
-                        label={user.gender || "Unknown"}
-                        size="small"
-                        variant="outlined"
-                        color={user.gender === "male" ? "primary" : "secondary"}
-                      />
-                    </TableCell>
-                    <TableCell align="right">
-                      <IconButton
-                        size="small"
-                        aria-label="edit user"
-                        onClick={(e) => {
-                          e.stopPropagation();
-                          handleUserClick(user);
-                        }}
-                      >
-                        <EditIcon fontSize="small" />
-                      </IconButton>
-                    </TableCell>
-                  </TableRow>
+                    user={user}
+                    onUserClick={handleUserClick}
+                  />
                 ))
               )}
             </TableBody>

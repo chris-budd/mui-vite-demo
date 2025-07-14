@@ -5,7 +5,9 @@ import Stack from "@mui/material/Stack";
 import Button from "@mui/material/Button";
 import AddRoundedIcon from "@mui/icons-material/AddRounded";
 import UserTable from "../components/UserTable";
+import UserPlanChart from "../components/UserPlanChart";
 import Copyright from "../../dashboard/internals/components/Copyright";
+import Grid from "@mui/material/Grid";
 
 export default function Customers() {
   return (
@@ -17,8 +19,8 @@ export default function Customers() {
         alignItems="center"
         sx={{ mb: 3, display: { xs: "none", sm: "flex" } }}
       >
-        <Typography variant="h4" component="h1">
-          Customers
+        <Typography variant="h2" component="h1" sx={{ fontSize: "35px" }}>
+          Customer Data
         </Typography>
         <Box>
           <Button
@@ -36,8 +38,13 @@ export default function Customers() {
 
       {/* Mobile header */}
       <Box sx={{ display: { xs: "block", sm: "none" }, mb: 3 }}>
-        <Typography variant="h5" component="h1" gutterBottom>
-          Customers
+        <Typography
+          variant="h4"
+          component="h1"
+          gutterBottom
+          sx={{ fontSize: "35px" }}
+        >
+          Customer Data
         </Typography>
         <Stack direction="row" spacing={1}>
           <Button
@@ -57,6 +64,15 @@ export default function Customers() {
             Import
           </Button>
         </Stack>
+      </Box>
+
+      {/* User Plan Chart */}
+      <Box sx={{ mb: 3 }}>
+        <Grid container spacing={2}>
+          <Grid item xs={12} md={6}>
+            <UserPlanChart />
+          </Grid>
+        </Grid>
       </Box>
 
       {/* User Table */}

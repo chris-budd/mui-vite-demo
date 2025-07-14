@@ -22,6 +22,7 @@ import CircularProgress from "@mui/material/CircularProgress";
 import Chip from "@mui/material/Chip";
 import TablePagination from "@mui/material/TablePagination";
 import UserEditModal from "./UserEditModal";
+import UserTableRow from "./UserTableRow";
 
 interface User {
   login: {
@@ -184,27 +185,6 @@ export default function UserTable({
     handleCloseModal();
   };
 
-  const formatDate = (dateString: string) => {
-    return new Date(dateString).toLocaleDateString("en-US", {
-      year: "numeric",
-      month: "short",
-      day: "numeric",
-    });
-  };
-
-  const getGenderColor = (
-    gender: string,
-  ): "default" | "primary" | "secondary" => {
-    switch (gender.toLowerCase()) {
-      case "male":
-        return "primary";
-      case "female":
-        return "secondary";
-      default:
-        return "default";
-    }
-  };
-
   if (error) {
     return (
       <Card variant="outlined">
@@ -340,52 +320,11 @@ export default function UserTable({
                 </TableRow>
               ) : (
                 users.map((user) => (
-                  <TableRow
+                  <UserTableRow
                     key={user.login.uuid}
-                    hover
-                    sx={{ cursor: "pointer" }}
-                    onClick={() => handleEditUser(user)}
-                  >
-                    <TableCell>
-                      <Avatar
-                        src={user.picture.thumbnail}
-                        alt={`${user.name.first} ${user.name.last}`}
-                        sx={{ width: 32, height: 32 }}
-                      >
-                        {user.name.first[0]}
-                        {user.name.last[0]}
-                      </Avatar>
-                    </TableCell>
-                    <TableCell sx={{ fontWeight: 500 }}>
-                      {user.name.title} {user.name.first}
-                    </TableCell>
-                    <TableCell>{user.name.last}</TableCell>
-                    <TableCell>{user.email}</TableCell>
-                    <TableCell>{user.location.city}</TableCell>
-                    <TableCell>{user.location.country}</TableCell>
-                    <TableCell>{user.dob.age}</TableCell>
-                    <TableCell>
-                      <Chip
-                        label={user.gender}
-                        size="small"
-                        color={getGenderColor(user.gender)}
-                        variant="outlined"
-                      />
-                    </TableCell>
-                    <TableCell>{formatDate(user.registered.date)}</TableCell>
-                    <TableCell align="right">
-                      <IconButton
-                        size="small"
-                        aria-label="edit user"
-                        onClick={(e) => {
-                          e.stopPropagation();
-                          handleEditUser(user);
-                        }}
-                      >
-                        <EditRoundedIcon fontSize="small" />
-                      </IconButton>
-                    </TableCell>
-                  </TableRow>
+                    user={user}
+                    onEditUser={handleEditUser}
+                  />
                 ))
               )}
             </TableBody>

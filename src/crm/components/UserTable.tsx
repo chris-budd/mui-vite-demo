@@ -16,7 +16,6 @@ import InputAdornment from "@mui/material/InputAdornment";
 import SearchRoundedIcon from "@mui/icons-material/SearchRounded";
 import Stack from "@mui/material/Stack";
 import CircularProgress from "@mui/material/CircularProgress";
-import Chip from "@mui/material/Chip";
 import TablePagination from "@mui/material/TablePagination";
 import UserEditModal from "./UserEditModal";
 import UserTableRow from "./UserTableRow";

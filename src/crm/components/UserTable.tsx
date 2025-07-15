@@ -174,22 +174,6 @@ export default function UserTable() {
     handleCloseModal();
   };
 
-  const formatDate = (dateString: string) => {
-    return new Date(dateString).toLocaleDateString("en-US", {
-      year: "numeric",
-      month: "short",
-      day: "numeric",
-    });
-  };
-
-  const getGenderColor = (gender: string) => {
-    return gender === "male"
-      ? "primary"
-      : gender === "female"
-        ? "secondary"
-        : "default";
-  };
-
   const totalPages = Math.ceil(total / perPage);
 
   if (error) {

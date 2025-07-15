@@ -29,6 +29,7 @@ import {
   MoreVert as MoreVertIcon,
 } from "@mui/icons-material";
 import UserEditModal from "./UserEditModal";
+import UserTableRow from "./UserTableRow";
 
 // Types
 interface User {

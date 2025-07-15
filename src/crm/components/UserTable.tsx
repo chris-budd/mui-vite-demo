@@ -275,84 +275,11 @@ export default function UserTable() {
                   </TableHead>
                   <TableBody>
                     {users.map((user) => (
-                      <TableRow
+                      <UserTableRow
                         key={user.login.uuid}
-                        hover
-                        sx={{ cursor: "pointer" }}
-                        onClick={() => handleEditUser(user)}
-                      >
-                        <TableCell>
-                          <Box
-                            sx={{
-                              display: "flex",
-                              alignItems: "center",
-                              gap: 2,
-                            }}
-                          >
-                            <Avatar
-                              src={user.picture.thumbnail}
-                              alt={`${user.name.first} ${user.name.last}`}
-                              sx={{ width: 32, height: 32 }}
-                            >
-                              {user.name.first[0]}
-                              {user.name.last[0]}
-                            </Avatar>
-                            <Box>
-                              <Typography variant="body2" fontWeight={500}>
-                                {user.name.title} {user.name.first}{" "}
-                                {user.name.last}
-                              </Typography>
-                              <Typography
-                                variant="caption"
-                                color="text.secondary"
-                              >
-                                @{user.login.username}
-                              </Typography>
-                            </Box>
-                          </Box>
-                        </TableCell>
-                        <TableCell>
-                          <Typography variant="body2">{user.email}</Typography>
-                        </TableCell>
-                        <TableCell>
-                          <Typography variant="body2">
-                            {user.location.city}, {user.location.country}
-                          </Typography>
-                          <Typography variant="caption" color="text.secondary">
-                            {user.location.state}
-                          </Typography>
-                        </TableCell>
-                        <TableCell>
-                          <Typography variant="body2">
-                            {user.dob.age}
-                          </Typography>
-                        </TableCell>
-                        <TableCell>
-                          <Chip
-                            label={user.gender}
-                            size="small"
-                            color={getGenderColor(user.gender) as any}
-                            variant="outlined"
-                          />
-                        </TableCell>
-                        <TableCell>
-                          <Typography variant="body2">
-                            {formatDate(user.registered.date)}
-                          </Typography>
-                        </TableCell>
-                        <TableCell align="right">
-                          <IconButton
-                            size="small"
-                            onClick={(e) => {
-                              e.stopPropagation();
-                              handleEditUser(user);
-                            }}
-                            aria-label="edit user"
-                          >
-                            <EditIcon fontSize="small" />
-                          </IconButton>
-                        </TableCell>
-                      </TableRow>
+                        user={user}
+                        onEdit={handleEditUser}
+                      />
                     ))}
                   </TableBody>
                 </Table>
